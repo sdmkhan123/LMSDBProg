@@ -162,7 +162,7 @@ CREATE TABLE user_roles (
   role_name varchar(100)
 )
 --=========================================================
---9.Creates Company Table
+--10.Creates Company Table
 --=========================================================
  CREATE TABLE company(
   id int IDENTITY(1,1) PRIMARY KEY NOT NULL,
@@ -170,6 +170,18 @@ CREATE TABLE user_roles (
   address varchar(150) DEFAULT NULL,
   location varchar(50) DEFAULT NULL,
   status int DEFAULT 1,
+  creator_stamp datetime DEFAULT NULL,
+  creator_user int DEFAULT NULL
+)
+--=========================================================
+--11.Creates tech stack Table
+--=========================================================
+CREATE TABLE tech_stack (
+  id int NOT NULL IDENTITY(1,1) PRIMARY KEY,
+  tech_name varchar(50) NOT NULL,
+  image_path varchar(500) DEFAULT NULL,
+  framework text DEFAULT NULL,
+  cur_status char(1) DEFAULT NULL,
   creator_stamp datetime DEFAULT NULL,
   creator_user int DEFAULT NULL
 )
