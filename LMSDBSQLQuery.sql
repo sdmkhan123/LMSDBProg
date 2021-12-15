@@ -185,3 +185,13 @@ CREATE TABLE tech_stack (
   creator_stamp datetime DEFAULT NULL,
   creator_user int DEFAULT NULL
 )
+--=========================================================
+--12.Creates tech type Table
+--=========================================================
+CREATE TABLE tech_type (
+  id int NOT NULL IDENTITY PRIMARY KEY,
+  type_name varchar(50) NOT NULL,
+  cur_status char DEFAULT NULL,
+  creator_stamp datetime DEFAULT NULL,
+  creator_user int DEFAULT NULL
+)
