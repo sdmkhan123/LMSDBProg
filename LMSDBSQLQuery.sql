@@ -195,3 +195,19 @@ CREATE TABLE tech_type (
   creator_stamp datetime DEFAULT NULL,
   creator_user int DEFAULT NULL
 )
+--=========================================================
+--13.Creates maker program Table
+--=========================================================
+CREATE TABLE maker_program(
+  id int IDENTITY(1,1) PRIMARY KEY NOT NULL,
+  tech_stack_id int DEFAULT NULL FOREIGN KEY REFERENCES tech_stack(id),
+  tech_type_id int NOT NULL FOREIGN KEY REFERENCES tech_type(id),
+  program_name varchar(255) NOT NULL,
+  program_type varchar(10) DEFAULT NULL,
+  program_link text DEFAULT NULL,
+  is_program_approved int,
+  description varchar(500) DEFAULT NULL,
+  status int DEFAULT 1,
+  creator_stamp datetime DEFAULT NULL,
+  creator_user int DEFAULT NULL,
+)
