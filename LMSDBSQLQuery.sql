@@ -61,3 +61,16 @@ CREATE TABLE fellowship_candidates (
   creator_stamp datetime DEFAULT NULL,
   creator_user int DEFAULT NULL,
 )
+--=========================================================
+--Creates Candidate personal details check Table
+--=========================================================
+CREATE TABLE candidates_personal_det_check (
+  id int identity(1,1) primary key NOT NULL,
+  candidate_id  int FOREIGN KEY REFERENCES fellowship_candidates(id),
+  field_name int NOT NULL,
+  is_verified int DEFAULT NULL,
+  lastupd_stamp datetime DEFAULT NULL,
+  lastupd_user int DEFAULT NULL,
+  creator_stamp datetime DEFAULT NULL,
+  creator_user int DEFAULT NULL
+)
