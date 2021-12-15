@@ -226,3 +226,15 @@ CREATE TABLE app_parameters (
   creator_user int DEFAULT NULL,
   seq_num int DEFAULT NULL,
 )
+--=========================================================
+--15.Creates lab Table
+--=========================================================
+CREATE TABLE lab(
+  id int IDENTITY(1,1) PRIMARY KEY NOT NULL,
+  name varchar(50) DEFAULT NULL,
+  location varchar(50) DEFAULT NULL,
+  address  varchar(255) DEFAULT NULL,
+  status int DEFAULT 1,
+  creator_stamp datetime DEFAULT NULL,
+  creator_user int DEFAULT NULL,
+)
