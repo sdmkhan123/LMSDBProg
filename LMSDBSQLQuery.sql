@@ -1,0 +1,2 @@
+create database LMSDataBase
+use LMSDataBase
