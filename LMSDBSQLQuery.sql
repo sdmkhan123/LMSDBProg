@@ -320,3 +320,6 @@ status varchar(20) DEFAULT NULL,
 creator_stamp datetime DEFAULT NULL,
 creator_user int DEFAULT NULL,
 )
+--=========================================================
+--End of Creation of Table
+--=========================================================
