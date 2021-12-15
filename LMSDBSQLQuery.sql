@@ -1,7 +1,7 @@
 create database LMSDataBase
 use LMSDataBase
 --=========================================================
---Creates Hired Candidates Table
+--1.Creates Hired Candidates Table
 --=========================================================
 CREATE TABLE hired_candidates (
   id int identity(1,1) primary key NOT NULL,
@@ -24,7 +24,7 @@ CREATE TABLE hired_candidates (
   creator_user int DEFAULT NULL,
 )
 --=========================================================
---Creates Fellowship Candidates table
+--2.Creates Fellowship Candidates table
 --=========================================================
 CREATE TABLE fellowship_candidates (
   id int identity(1,1) primary key NOT NULL,
@@ -62,15 +62,33 @@ CREATE TABLE fellowship_candidates (
   creator_user int DEFAULT NULL,
 )
 --=========================================================
---Creates Candidate personal details check Table
+--3.Creates Candidate personal details check Table
 --=========================================================
 CREATE TABLE candidates_personal_det_check (
   id int identity(1,1) primary key NOT NULL,
-  candidate_id  int FOREIGN KEY REFERENCES fellowship_candidates(id),
+  candidate_id  int NOT NULL FOREIGN KEY REFERENCES fellowship_candidates(id),
   field_name int NOT NULL,
   is_verified int DEFAULT NULL,
   lastupd_stamp datetime DEFAULT NULL,
   lastupd_user int DEFAULT NULL,
   creator_stamp datetime DEFAULT NULL,
   creator_user int DEFAULT NULL
+)
+--=========================================================
+--4.Creates Candidate bank details Table
+--=========================================================
+CREATE TABLE candidate_bank_det(
+  id int identity(1,1) primary key NOT NULL,
+  candidate_id int NOT NULL FOREIGN KEY REFERENCES fellowship_candidates(id),
+  name varchar(100) NOT NULL,
+  account_num int NOT NULL,
+  is_account_num_verified int DEFAULT 0,
+  ifsc_code varchar(20) NOT NULL,
+  is_ifsc_code_verified int DEFAULT 0,
+  pan_number varchar(10) DEFAULT NULL,
+  is_pan_number_verified int DEFAULT 0,
+  addhaar_num int NOT NULL,
+  is_addhaar_num_verified int DEFAULT 0,
+  creator_stamp datetime DEFAULT NULL,
+  creator_user int DEFAULT NULL,
 )
