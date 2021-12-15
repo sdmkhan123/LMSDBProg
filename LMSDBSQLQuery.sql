@@ -121,12 +121,24 @@ CREATE TABLE candidate_qualification(
 --6.Creates Candidate education_det_check Table
 --=========================================================
 CREATE TABLE candidates_education_det_check (
-  id int NOT NULL,
-  candidate_id  int NOT NULL,
+  id int IDENTITY(1,1) PRIMARY KEY NOT NULL,
+  candidate_id int  NOT NULL FOREIGN KEY REFERENCES fellowship_candidates(id),
   field_name varchar(255) NOT NULL,
   is_verified int DEFAULT NULL,
   lastupd_stamp datetime DEFAULT NULL,
   lastupd_user int DEFAULT NULL,
   creator_stamp datetime DEFAULT NULL,
   creator_user int DEFAULT NULL
+)
+--=========================================================
+--7.Creates Candidate Documents Table
+--=========================================================
+CREATE TABLE candidate_docs(
+  id int IDENTITY(1,1) PRIMARY KEY NOT NULL,
+  candidate_id int  NOT NULL FOREIGN KEY REFERENCES fellowship_candidates(id),
+  doc_type varchar(20) DEFAULT NULL,
+  doc_path varchar(500) DEFAULT NULL,
+  status int DEFAULT 1,
+  creator_stamp datetime DEFAULT NULL,
+  creator_user int DEFAULT NULL,
 )
