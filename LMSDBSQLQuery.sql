@@ -308,3 +308,15 @@ status int DEFAULT 1,
 creator_stamp datetime DEFAULT NULL,
 creator_user int DEFAULT NULL,
 )
+--=========================================================
+--21.Creates Candidate Techstack Assignment Table
+--=========================================================
+CREATE TABLE candidate_techstack_assignment(
+id int IDENTITY(1,1) PRIMARY KEY NOT NULL,
+requirement_id int NOT NULL FOREIGN KEY REFERENCES company_requirement(id),
+candidate_id int NOT NULL FOREIGN KEY REFERENCES fellowship_candidates(id),
+assign_date datetime DEFAULT NULL,
+status varchar(20) DEFAULT NULL,
+creator_stamp datetime DEFAULT NULL,
+creator_user int DEFAULT NULL,
+)
