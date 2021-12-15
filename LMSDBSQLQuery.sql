@@ -238,3 +238,25 @@ CREATE TABLE lab(
   creator_stamp datetime DEFAULT NULL,
   creator_user int DEFAULT NULL,
 )
+--=========================================================
+--16.Creates mentor Table
+--=========================================================
+CREATE TABLE mentor(
+  id int NOT NULL IDENTITY(1,1) PRIMARY KEY,
+  lab_id int NOT NULL FOREIGN KEY REFERENCES lab(id),
+  name varchar(50) DEFAULT NULL,
+  mentor_type varchar(20) DEFAULT NULL,
+  status int DEFAULT 1,
+  creator_stamp datetime DEFAULT NULL,
+  creator_user int DEFAULT NULL,
+)
+--=========================================================
+--17.Creates mentor ideation map Table
+--=========================================================
+CREATE TABLE mentor_ideation_map(
+  id int NOT NULL IDENTITY(1,1) PRIMARY KEY,
+  mentor_id int NOT NULL FOREIGN KEY REFERENCES mentor(id),
+  status int DEFAULT 1,
+  creator_stamp datetime DEFAULT NULL,
+  creator_user int DEFAULT NULL
+)
