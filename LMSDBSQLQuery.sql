@@ -189,7 +189,7 @@ CREATE TABLE tech_stack (
 --12.Creates tech type Table
 --=========================================================
 CREATE TABLE tech_type (
-  id int NOT NULL IDENTITY PRIMARY KEY,
+  id int NOT NULL IDENTITY(1,1) PRIMARY KEY,
   type_name varchar(50) NOT NULL,
   cur_status char DEFAULT NULL,
   creator_stamp datetime DEFAULT NULL,
@@ -210,4 +210,19 @@ CREATE TABLE maker_program(
   status int DEFAULT 1,
   creator_stamp datetime DEFAULT NULL,
   creator_user int DEFAULT NULL,
+)
+--=========================================================
+--14.Creates app parameters Table
+--=========================================================
+CREATE TABLE app_parameters (
+  id int IDENTITY(1,1) PRIMARY KEY NOT NULL,
+  key_type varchar(20) NOT NULL,
+  key_value varchar(20) NOT NULL,
+  key_text varchar(80) DEFAULT NULL,
+  cur_status char(1) DEFAULT NULL,
+  lastupd_user int DEFAULT NULL,
+  lastupd_stamp datetime DEFAULT NULL,
+  creator_stamp datetime DEFAULT NULL,
+  creator_user int DEFAULT NULL,
+  seq_num int DEFAULT NULL,
 )
