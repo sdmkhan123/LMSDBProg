@@ -24,3 +24,12 @@ insert into fellowship_candidates values
 ('Atul', null, 'Shinde', 'atul@gmail.com ', 'Udgir','M.Sc','2019-10-01', 8965741201, 413517, 'Java', 'Good',
 'Fine', 'Good', 'Good', '1997-06-05', 1, 'Arvind', 'Teacher', 7584962547, 450000.00, 'Udgir', 'Udgir',
 'photo_path.jpg', '2019-12-13', 'Good', 1, 1, 1, 'Correct', 'Good', null, 3)
+--=========================================================
+--3.Insert data into Candidate bank details check Table
+--=========================================================
+insert into candidate_bank_det values
+(2,'Vikas',075611610021545,1,'BKID002154',1,'CSIPG052J',1,321549874512,1,NULL,1),
+(4,'Saddam',845611610021545,1,'PAYTM0021',1,'CSIPG013J',1,681549874512,1,NULL,4),
+(3,'Khan',845611610021545,1,'PAYTM0021',1,'CSIPG013J',1,681549874512,1,NULL,4),
+(4,'Sdm',845611610021545,1,'PAYTM0021',1,'CSIPG013J',1,681549874512,1,NULL,4),
+(2,'Atul',12511610021545,1,'KTK002154',1,'CSING042J',1,681549874512,1,NULL,2)
