@@ -65,3 +65,14 @@ insert into user_details values
 ('kapesh@gmail.com','kapesh','kumar','kalpesh@123',7780021540,1),
 ('hanif@gmail.com','hanif','Md','hanif@123',7780021540,1)
 select * from user_details
+
+--=========================================================
+--7.Insert data into tech stack Table
+--=========================================================
+insert  into tech_stack values
+('C#', null, '.NET', 'T', null, 1),
+('C++', null, 'gcc', 'T', null, 1),
+('Python', null, 'Pycharm', 'T', null, 1),
+('Java', null, 'eclips', 'T', null, 1),
+('HTML', null, 'notepad', 'T', null, 1)
+select * from tech_stack
