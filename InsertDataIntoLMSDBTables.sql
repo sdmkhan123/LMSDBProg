@@ -33,3 +33,35 @@ insert into candidate_bank_det values
 (3,'Khan',845611610021545,1,'PAYTM0021',1,'CSIPG013J',1,681549874512,1,NULL,4),
 (4,'Sdm',845611610021545,1,'PAYTM0021',1,'CSIPG013J',1,681549874512,1,NULL,4),
 (2,'Atul',12511610021545,1,'KTK002154',1,'CSING042J',1,681549874512,1,NULL,2)
+select * from candidate_bank_det
+
+--=========================================================
+--4. Insert data into User Roles Table
+--=========================================================
+insert into User_Roles values
+('Backend'),
+('Fullstack'),
+('DevOps'),
+('Frontend'),
+('Tester')
+select * from User_Roles
+--=========================================================
+--5.Insert data into Company Table
+--=========================================================
+insert into company values
+('KPMG','Hyderabad', 'Andhra', 1,NULL,1),
+('Dell','Pune', 'MH', 1,NULL,2),
+('Amazon','Mumbai', 'MH', 1,NULL,3),
+('Magic','Benglore', 'KA', 1,NULL,4),
+('Intel','LK', 'UP', 1,NULL,5)
+select * from company
+--=========================================================
+--6.Insert data into User Details Table
+--=========================================================
+insert into user_details values
+('saddam@gmail.com','saddam','Khan','sdm@123',9854124587,1),
+('rani@gmail.com','rani','gupta','rani@123',8745962145,1),
+('taran@gmail.com','taran','gilll','taran@123',7756998001,1),
+('kapesh@gmail.com','kapesh','kumar','kalpesh@123',7780021540,1),
+('hanif@gmail.com','hanif','Md','hanif@123',7780021540,1)
+select * from user_details
