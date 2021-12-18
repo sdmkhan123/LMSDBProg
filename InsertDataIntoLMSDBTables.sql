@@ -188,3 +188,24 @@ insert company_requirement values
 (3, 4, 'nine', 'Mumbai', 1, null, 35, 2, 1, 4, 1, 1, 1, 'good', 1,null, 2),
 (2, 1, 'six', 'Delhi' ,1, null, 5, 2, 1, 2, 1, 1, 1, 'good', 1, null, 2)
 select * from company_requirement
+--=========================================================
+--20.Insert data into lab threshold Table
+--=========================================================
+insert lab_threshold values
+(14,'lab_capacity',5,3,2,1,null,2),
+(15,'lab_capacity',5,3,2,1,null,2),
+(18,'lab_capacity',4,2,2,1,null,2),
+(14,'lab_capacity',3,1,1,1,null,2)
+select * from lab_threshold
+--=========================================================
+--21.Insert data into Candidate Techstack Assignment Table
+--=========================================================
+insert candidate_techstack_assignment values
+(14,1,null,'true',null,1),
+(15,2,null,'true',null,1),
+(16,3,null,'true',null,1),
+(18,4,null,'true',null,1)
+select * from candidate_techstack_assignment
+--=========================================================
+--End of Insert data into Tables
+--=========================================================
