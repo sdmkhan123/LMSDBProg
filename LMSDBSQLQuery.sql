@@ -173,6 +173,8 @@ status int DEFAULT 1,
 creator_stamp datetime DEFAULT NULL,
 creator_user int DEFAULT NULL
 )
+ALTER TABLE company
+ALTER COLUMN name VARCHAR(150)
 --=========================================================
 --11.Creates tech stack Table
 --=========================================================
@@ -299,7 +301,7 @@ creator_user int DEFAULT NULL,
 --=========================================================
 CREATE TABLE lab_threshold(
 id int IDENTITY(1,1) PRIMARY KEY NOT NULL,
-lab_id int NOT NULL FOREIGN KEY REFERENCES company_requirement(id),
+lab_id int NOT NULL FOREIGN KEY REFERENCES lab(id),
 lab_capacity varchar(50) DEFAULT NULL,
 lead_threshold int DEFAULT NULL,
 ideation_engg_threshold int DEFAULT NULL,
@@ -308,6 +310,8 @@ status int DEFAULT 1,
 creator_stamp datetime DEFAULT NULL,
 creator_user int DEFAULT NULL,
 )
+ALTER TABLE lab_threshold
+ADD lab_id int NOT NULL FOREIGN KEY REFERENCES lab(id)
 --=========================================================
 --21.Creates Candidate Techstack Assignment Table
 --=========================================================
