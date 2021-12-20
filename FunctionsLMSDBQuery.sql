@@ -55,7 +55,34 @@ Select * From GetMulCandidate()
 --=============================================================
 --System Defined Scalar Function
 --=============================================================
-Select Upper(first_name) From fellowship_candidates
-Select Lower(first_name) From fellowship_candidates
-Select Len(first_name) From fellowship_candidates
-Select Substring(first_name,2,4) From fellowship_candidates
+Select Upper(first_name) as FirstName From fellowship_candidates
+Select Lower(first_name) as FirstName From fellowship_candidates
+Select Len(first_name) as FirstName From fellowship_candidates
+Select Substring(first_name,2,4)as SubStrings From fellowship_candidates
+--=============================================================
+--System Defined Aggregate Function
+--=============================================================
+Select Avg(parent_annual_sal) as Salary From fellowship_candidates
+Select Min(parent_annual_sal) as Salary From fellowship_candidates
+Select Max(parent_annual_sal) as Salary From fellowship_candidates
+Select Sum(parent_annual_sal) as Salary From fellowship_candidates
+Select Count(parent_annual_sal) as Salary From fellowship_candidates
+
+--Mathematical function to print the number
+Create Function fun_PrintNumber()  
+Returns Decimal(7,2)  
+As
+Begin  
+Return 1000.13
+End
+Print dbo.fun_PrintNumber()
+
+--Mathematical function to create a two-number addition.
+Create Function Fun_Addition(@Num1 Decimal(7,2),@Num2 Decimal(7,2))  
+Return Decimal(7,2)  
+Begin  
+Declare @Result Decimal(7,2)  
+set @Result = @Num1 + @Num2  
+Return @Result  
+End
+Print dbo.Fun_Addition(12.254,13.1546) 
