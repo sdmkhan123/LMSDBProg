@@ -50,4 +50,12 @@ update @Candidae
 return
 end
 --Now call the above created function
-Select * from GetMulCandidate() 
+Select * From GetMulCandidate() 
+
+--=============================================================
+--System Defined Scalar Function
+--=============================================================
+Select Upper(first_name) From fellowship_candidates
+Select Lower(first_name) From fellowship_candidates
+Select Len(first_name) From fellowship_candidates
+Select Substring(first_name,2,4) From fellowship_candidates
