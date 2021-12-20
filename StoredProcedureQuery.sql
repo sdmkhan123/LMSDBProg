@@ -37,3 +37,23 @@ BEGIN
 	END CATCH
 END
 EXEC InsertAndShowCreateUser 'sdmkhan@gmail.com','sdmkhan','khan','sdmkhan@123',889689606,1;
+--=================================================================================
+--Stored procedure with output parameter in uer details table
+--=================================================================================
+Create Procedure OutputParamProcedure
+@name varchar(50),
+@Usercount int output
+As
+Begin
+	Begin Try
+		select @Usercount=Count(id)
+		from user_details
+		where first_name=@name;
+	End Try
+	Begin Catch
+		Select ERROR_MESSAGE() AS ErrorMessage;
+	End Catch
+End
+Declare @TotalCount int;
+Exec OutputParamProcedure 'Saddam',@TotalCount Output;
+Select @TotalCount;
