@@ -1,13 +1,13 @@
 Use LMSDataBase
 --===========================================================================
--- Create a simple transaction Query and update the Data in table
+-- 1.Create a simple transaction Query and update the Data in table
 --===========================================================================
 Begin Transaction;
 update hired_candidates set first_name = 'Kalpesh', last_name = 'Kumar' where id = 4;
 Commit Transaction;
 Rollback Transaction;
 --===========================================================================
--- Create a simple transaction Query with try-catch block
+-- 2.Create a simple transaction Query with try-catch block
 --===========================================================================
 Begin
 	Begin Try
@@ -24,7 +24,7 @@ Begin
 End
 Select * From hired_candidates;
 --===========================================================================
--- Create a transaction Query with input parameter and try-catch block
+-- 3.Create a transaction Query with input parameter and try-catch block
 --===========================================================================
 Create PROCEDURE TncUserDocuments(
 @creator_user int,
@@ -53,3 +53,29 @@ BEGIN
 	END CATCH
 END
 EXEC TncUserDocuments 5,'UID',19
+--===========================================================================
+-- 4.Create a transaction Query using In OR operator and Aggregate Max fun
+--===========================================================================
+Begin
+	BEGIN TRY
+		BEGIN TRANSACTION; 
+--Find the maxmum salary from Fellowship_Candidates
+			select * from Fellowship_Candidates
+			where parent_annual_sal=(select max(parent_annual_sal)from fellowship_candidates);
+--nested quaries
+			select * from hired_candidates
+			where hired_city in (select hired_city from hired_candidates
+								 where first_name='Saddam' or first_name='Rani');
+--Using In operator
+			select * from hired_candidates
+			where hired_city in (select hired_city from hired_candidates
+								 where first_name in('Saddam','Rani'));
+		COMMIT TRANSACTION;
+		Print 'Trasaction successfully done';
+	End Try
+	Begin Catch
+		Rollback TRANSACTION;
+		Select
+				ERROR_MESSAGE() AS ErrorMessage;
+	End Catch
+End
