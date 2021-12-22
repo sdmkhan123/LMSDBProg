@@ -71,3 +71,20 @@ fetch relative 2 from MyDynamicCursorName;
 close MyDynamicCursorName
 --Deallocate the cursor
 deallocate MyDynamicCursorName
+--================================================================
+--5.Using Keyset-driven Cursor
+--================================================================
+--Every keyset uniquely identifies a single row in the result set.
+select * from maker_program;
+declare MyKeysetDrivenCursorName cursor
+Dynamic for
+select * from maker_program
+--Opening cursor
+open MyKeysetDrivenCursorName;
+--Fetch data
+fetch first from MyKeysetDrivenCursorName;
+fetch next from MyKeysetDrivenCursorName;
+--Closing the cursor
+close MyKeysetDrivenCursorName
+--Deallocate the cursor
+deallocate MyKeysetDrivenCursorName
