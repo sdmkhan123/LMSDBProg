@@ -32,6 +32,7 @@ deallocate MycursorName
 --================================================================
 --3.Using Static Cursor
 --================================================================
+--Changes made to the original table will not be reflects in the Static Cursor
 select * from hired_candidates;
 declare MyStaticCursorName cursor
 static for
@@ -49,3 +50,24 @@ fetch relative 2 from MyStaticCursorName;
 close MyStaticCursorName
 --Deallocate the cursor
 deallocate MyStaticCursorName
+--================================================================
+--4.Using Dynamic Cursor
+--================================================================
+--All changes made to the original table will reflects in the Dynamic Cursor
+select * from hired_candidates;
+declare MyDynamicCursorName cursor
+Dynamic for
+select * from hired_candidates
+--Opening cursor
+open MyDynamicCursorName;
+--Fetch data
+fetch first from MyDynamicCursorName;
+fetch next from MyDynamicCursorName;
+fetch last from MyDynamicCursorName;
+fetch prior from MyDynamicCursorName;
+--fetch absolute 2 from MyDynamicCursorName;
+fetch relative 2 from MyDynamicCursorName;
+--Closing the cursor
+close MyDynamicCursorName
+--Deallocate the cursor
+deallocate MyDynamicCursorName
