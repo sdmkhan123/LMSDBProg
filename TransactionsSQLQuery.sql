@@ -39,7 +39,7 @@ BEGIN
 		COMMIT Transaction;
 	End Try
 	BEGIN CATCH
-        IF (XACT_STATE()) = -1  
+        IF (XACT_STATE()) = -1 
         BEGIN  
             PRINT  N'The transaction is in an uncommittable state.' + 'Rolling back transaction.'  
             ROLLBACK TRANSACTION;  
@@ -48,13 +48,13 @@ BEGIN
         IF (XACT_STATE()) = 1  
         BEGIN  
             PRINT N'The transaction is committable.' + 'Committing transaction.'  
-            COMMIT TRANSACTION;     
+            COMMIT TRANSACTION;    
         END;
 	END CATCH
 END
 EXEC TncUserDocuments 5,'UID',19
 --===========================================================================
--- 4.Create a transaction Query using In OR operator and Aggregate Max fun
+-- 4.Create a transaction Nested Query using In OR operator and Aggregate Max fun
 --===========================================================================
 Begin
 	BEGIN TRY
