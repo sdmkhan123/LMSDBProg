@@ -29,3 +29,23 @@ fetch relative 2 from MycursorName;
 close MycursorName
 --Deallocate the cursor
 deallocate MycursorName
+--================================================================
+--3.Using Static Cursor
+--================================================================
+select * from hired_candidates;
+declare MyStaticCursorName cursor
+static for
+select * from hired_candidates
+--Opening cursor
+open MyStaticCursorName;
+--Fetch data
+fetch first from MyStaticCursorName;
+fetch next from MyStaticCursorName;
+fetch last from MyStaticCursorName;
+fetch prior from MyStaticCursorName;
+fetch absolute 4 from MyStaticCursorName;
+fetch relative 2 from MyStaticCursorName;
+--Closing the cursor
+close MyStaticCursorName
+--Deallocate the cursor
+deallocate MyStaticCursorName
