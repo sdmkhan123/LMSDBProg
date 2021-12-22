@@ -35,3 +35,24 @@ BEGIN
 		Select ERROR_MESSAGE() As [Error Message];
 	End Catch
 End
+
+--===================================================================================
+--4.Write a query for creates Trigger using trg ABefore Insert
+--===================================================================================
+CREATE TRIGGER trgABeforeInsert
+ON user_roles
+FOR INSERT
+AS
+Begin
+	Begin try
+		declare @role_name varchar(100);
+		insert into user_roles (role_name)
+		values(@role_name);
+		PRINT 'AFTER INSERT trigger fired.'
+	End try
+	Begin Catch
+		Select ERROR_MESSAGE() As [Error Message];
+	End Catch
+End
+insert into user_roles values('Fired');
+Select * from user_roles
