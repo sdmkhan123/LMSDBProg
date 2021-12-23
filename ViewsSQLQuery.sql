@@ -35,3 +35,12 @@ SET hired_lab = 'Angular'
 WHERE id = 5
 DELETE CandidateViewTable WHERE id = 5
 DROP VIEW CandidateViewTable;
+--======================================================================
+--write join query on view virtual table
+--======================================================================
+CREATE VIEW viewTableOfCandidates AS
+SELECT c.first_name,c.last_name,b.account_num,b.ifsc_code FROM fellowship_candidates c
+LEFT OUTER JOIN candidate_bank_det b
+ON c.id = b.candidate_id;
+SELECT * FROM viewTableOfCandidates
+DROP VIEW viewTableOfCandidates;
