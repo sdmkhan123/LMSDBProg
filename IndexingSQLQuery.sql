@@ -28,3 +28,11 @@ ON dbo.[CpuLogData2019-11-17-new](Usage_Cpu_Count ASC);
 select * from dbo.[CpuLogData2019-11-17-new]
 where cpu_avg_load_over_5_min>1 and cpu_avg_load_over_5_min<1.5;
 DROP INDEX IX_tblmumbai_Name ON [dbo].[CpuLogData2019-11-17-new];
+--======================================================================
+--4.Writes a query to create Non Clustered index of CPU_Log_Data for mouse
+--======================================================================
+CREATE NONCLUSTERED INDEX NonClusteredInsexOfCpuMouse  
+ON dbo.[CpuLogData2019-11-17-new](mouse ASC);
+select * from dbo.[CpuLogData2019-11-17-new]
+where mouse = 0;
+DROP INDEX NonClusteredInsexOfCpuMouse ON [dbo].[CpuLogData2019-11-17-new];
