@@ -4,7 +4,8 @@ use LMSDataBase
 --========================================
 select *
 from fellowship_candidates inner join candidate_bank_det 
-on fellowship_candidates.id=candidate_bank_det.candidate_id;
+on fellowship_candidates.id=candidate_bank_det.candidate_id
+order by fellowship_candidates.parent_annual_sal;
 --========================================
 --2.left join
 --========================================
