@@ -50,7 +50,7 @@ update @Candidae
 return
 end
 --Now call the above created function
-Select * From GetMulCandidate() 
+Select * From GetMulCandidate()
 
 --=============================================================
 --System Defined Scalar Function
@@ -79,7 +79,7 @@ Print dbo.fun_PrintNumber()
 
 --Mathematical function to create a two-number addition.
 Create Function Fun_Addition(@Num1 Decimal(7,2),@Num2 Decimal(7,2))  
-Return Decimal(7,2)  
+Return Decimal(7,2)
 Begin  
 Declare @Result Decimal(7,2)  
 set @Result = @Num1 + @Num2  
