@@ -66,6 +66,7 @@ Begin
 			select * from hired_candidates
 			where hired_city in (select hired_city from hired_candidates
 								 where first_name='Saddam' or first_name='Rani');
+			SAVE TRANSACTION thisisavPoint
 --Using In operator
 			select * from hired_candidates
 			where hired_city in (select hired_city from hired_candidates
